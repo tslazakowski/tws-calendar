@@ -1,2 +1,2 @@
-# tws-calendar
+# TWS-Calendar
 TWS Schedule
