@@ -125,7 +125,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg-primary);color:var(--t
     <div class="legend">
       <div class="legend-item"><div class="legend-dot measure"></div>Template</div>
       <div class="legend-item"><div class="legend-dot install"></div>Install</div>
-      <div class="legend-item"><div class="legend-dot release"></div>Job Release</div>
     </div>
     <button class="btn" id="btnSync" onclick="loadPhases()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg> Refresh</button>
   </div>
@@ -137,7 +136,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg-primary);color:var(--t
   <!-- WEEKLY TEMPLATE (Blue) -->
   <div class="cap-card">
     <div class="cap-top">
-      <div class="cap-label tmpl">Weekly Template</div>
+      <div class="cap-label tmpl">Template</div>
       <div class="cap-pct tmpl" id="capTmplPct" style="color:var(--template-color)">0%</div>
     </div>
     <div class="cap-sf tmpl" id="capTmplSF">0 SF</div>
@@ -151,7 +150,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg-primary);color:var(--t
   <!-- WEEKLY PRODUCTION (Cyan) -->
   <div class="cap-card">
     <div class="cap-top">
-      <div class="cap-label prod">Weekly Production</div>
+      <div class="cap-label prod">Production</div>
       <div class="cap-pct prod" id="capProdPct" style="color:var(--production-color)">0%</div>
     </div>
     <div class="cap-sf prod" id="capProdSF">0 SF</div>
@@ -165,7 +164,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg-primary);color:var(--t
   <!-- WEEKLY INSTALL (Green) -->
   <div class="cap-card">
     <div class="cap-top">
-      <div class="cap-label inst">Weekly Install</div>
+      <div class="cap-label inst">Install</div>
       <div class="cap-pct inst" id="capInstPct" style="color:var(--install-color)">0%</div>
     </div>
     <div class="cap-sf inst" id="capInstSF">0 SF</div>
@@ -313,7 +312,7 @@ function updateCapacity(){
   document.getElementById('capTmplPhases').textContent=tmplCount+' phase'+(tmplCount!==1?'s':'');
   document.getElementById('capTmplBar').style.width=tmplPct+'%';
   document.getElementById('capTmplPct').textContent=tmplPct+'%';
-  document.getElementById('capTmplDone').textContent=tmplDoneSF.toFixed(0)+' / '+tmplSF.toFixed(0)+' SF completed';
+  document.getElementById('capTmplDone').textContent=tmplDoneSF.toFixed(0)+' SF / '+tmplSF.toFixed(0)+' SF completed';
 
   // PRODUCTION (Cyan)
   const prodPct=prodSF>0?Math.round((prodDoneSF/prodSF)*100):0;
@@ -321,7 +320,7 @@ function updateCapacity(){
   document.getElementById('capProdPhases').textContent=prodCount+' phase'+(prodCount!==1?'s':'');
   document.getElementById('capProdBar').style.width=prodPct+'%';
   document.getElementById('capProdPct').textContent=prodPct+'%';
-  document.getElementById('capProdDone').textContent=prodDoneSF.toFixed(0)+' / '+prodSF.toFixed(0)+' SF completed';
+  document.getElementById('capProdDone').textContent=prodDoneSF.toFixed(0)+' SF / '+prodSF.toFixed(0)+' SF completed';
 
   // INSTALL (Green) - capacity coloring
   const overBy=instSF-WEEKLY_CAPACITY;
